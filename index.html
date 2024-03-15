@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise</title>
+</head>
+<body>
+<script type="module">
+    // import MyPromise from './mypromise.js'
+    import MyPromise1 from "./myPromise.js"
+
+
+    // const promise = new MyPromise1((resolve, reject) => {
+    //     console.log('step 1')
+    //     setTimeout(() => {
+    //         resolve(1)
+    //     }, 2000)
+    // });
+    //
+    // promise.then(value => {
+    //     console.log(value)
+    // }, reason => {
+    //     console.log(reason)
+    // }).then(value => {
+    //     console.log(value)
+    // }, reason => {
+    //     console.log(reason)
+    // })
+
+    // const pro = MyPromise1.resolve('sss')
+    // pro.then(value => {
+    //     console.log(value)
+    // })
+    // console.log("-------------------------------------------------------------------")
+    //
+    // const p1 = new MyPromise1((resolve, reject) => {
+    //     setTimeout(() => {
+    //         resolve('成功啦')
+    //     }, 2000)
+    // })
+    //
+    // const p2 = new MyPromise1((resolve, reject) => {
+    //     setTimeout(() => {
+    //         resolve('成功啦2')
+    //     }, 1000)
+    // })
+    //
+    //
+    // MyPromise1.race([p1, p2]).then(value => {
+    //     console.log(value)
+    // })
+    // console.log("-----------------------------------------------------------")
+    //
+    // const a3 = new MyPromise1((resolve, reject) => {
+    //     setTimeout(() => {
+    //         resolve('成功啦3')
+    //     }, 3000)
+    // })
+    //
+    // const a4 = new MyPromise1((resolve, reject) => {
+    //     setTimeout(() => {
+    //         resolve('成功啦4')
+    //     }, 4000)
+    // })
+    //
+    // MyPromise1.all([a3, a4]).then(value => {
+    //     console.log(value)
+    // })
+
+    console.log("-----------------------------------------------------------")
+
+
+    const m1 = new MyPromise1((resolve, reject) => {
+        setTimeout(() => {
+            // reject('失败5')
+
+            resolve('成功啦5')
+        }, 3000)
+    })
+
+    const m2 = new MyPromise1((resolve, reject) => {
+        setTimeout(() => {
+            resolve('成功啦6')
+        }, 2000)
+    })
+
+
+    MyPromise1.all([m1, m2]).then(value => {
+        console.log(value)
+    }, reason => {
+        console.log("failed",reason)
+    }).finally(() => {
+        console.log("finally")
+    })
+</script>
+</body>
+</html>
